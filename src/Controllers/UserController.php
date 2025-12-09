@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Middleware\RoleMiddleware;
 use Models\User;
 use Respect\Validation\Validator as v;
+use App\Interfaces\ICrudController;
 
 class UserController extends BaseController implements ICrudController
 {
@@ -12,6 +14,8 @@ class UserController extends BaseController implements ICrudController
      */
     public function index()
     {
+        RoleMiddleware::requireRole([2]);
+
         $users = User::all();
         return $this->success($users, "Lista de usuarios");
     }

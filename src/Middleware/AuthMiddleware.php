@@ -18,8 +18,11 @@ class AuthMiddleware
             exit;
         }
 
+
+
+
         // Esperamos: "Bearer <token>"
-        if (!preg_match('/Bearer\s(\S+)/', $auth, $matches)) {
+        if (!preg_match('/Bearer\s(\S+)/', $auth,  $matches)) {
             http_response_code(401);
             echo json_encode(['status' => 'error', 'message' => 'Formato de token inválido']);
             exit;

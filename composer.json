@@ -21,6 +21,7 @@
         "illuminate/database": "^12.41",
         "illuminate/events": "^12.41",
         "respect/validation": "^2.4",
-        "firebase/php-jwt": "^6.11"
+        "firebase/php-jwt": "^6.11",
+        "phpmailer/phpmailer": "^7.0"
     }
 }

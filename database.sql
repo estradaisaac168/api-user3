@@ -174,3 +174,10 @@ VALUES ('admin', 'admin@example.com', '$2y$...your_bcrypt_hash_here...', 1);
 */
 
 -- End of schema
+
+-- Para verificacion de email
+ALTER TABLE users
+ADD COLUMN is_verified TINYINT(1) DEFAULT 0,
+ADD COLUMN verification_token VARCHAR(255) NULL,
+ADD COLUMN verification_expires DATETIME NULL;
+

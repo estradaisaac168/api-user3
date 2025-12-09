@@ -52,6 +52,7 @@ class ComposerStaticInit0d80d60133a44ea7e26283f83cab9b00
             'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
             'PhpOption\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' =>
         array (
@@ -165,6 +166,10 @@ class ComposerStaticInit0d80d60133a44ea7e26283f83cab9b00
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'PHPMailer\\PHPMailer\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'Models\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src/Models',
@@ -256,6 +261,7 @@ class ComposerStaticInit0d80d60133a44ea7e26283f83cab9b00
         'App\\Controllers\\AuthController' => __DIR__ . '/../..' . '/src/Controllers/AuthController.php',
         'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/src/Controllers/BaseController.php',
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/src/Controllers/UserController.php',
+        'App\\Interfaces\\ICrudController' => __DIR__ . '/../..' . '/src/Interfaces/ICrudController.php',
         'App\\Middleware\\AuthMiddleware' => __DIR__ . '/../..' . '/src/Middleware/AuthMiddleware.php',
         'App\\Middleware\\RoleMiddleware' => __DIR__ . '/../..' . '/src/Middleware/RoleMiddleware.php',
         'App\\Models\\Course' => __DIR__ . '/../..' . '/src/Models/Course.php',
@@ -1043,6 +1049,13 @@ class ComposerStaticInit0d80d60133a44ea7e26283f83cab9b00
         'Models\\User' => __DIR__ . '/../..' . '/src/Models/User.php',
         'NoDiscard' => __DIR__ . '/..' . '/symfony/polyfill-php85/Resources/stubs/NoDiscard.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
+        'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PhpOption\\LazyOption' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/LazyOption.php',
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',

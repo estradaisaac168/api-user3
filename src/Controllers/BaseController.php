@@ -19,6 +19,12 @@ abstract class BaseController
   // abstract public function update($id);
   // abstract public function delete($id);
 
+  // public function index(){}
+  // public function show($id){}
+  // public function store(){}
+  // public function update($id){}
+  // public function delete($id){}
+
 
   // protected function cors()
   // {

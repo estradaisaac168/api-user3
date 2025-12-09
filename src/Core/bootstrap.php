@@ -56,3 +56,4 @@ register_shutdown_function(function () {
 
 // ====== BASE DE DATOS ======
 require_once __DIR__ . '/database.php';
+require_once __DIR__ . '/../Helpers/helpers.php';

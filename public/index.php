@@ -21,6 +21,13 @@ $router->post('/auth/login', function () {
     (new AuthController())->login();
 });
 
+//Veridicacion del email by token
+$router->get('/auth/verify', function(){
+    (new AuthController())->verifyEmail();
+});
+
+
+
 // Protege rutas /users con middleware
 $router->before('GET|POST|PUT|DELETE', '/users.*', function () {
     (new AuthMiddleware())->handle();
