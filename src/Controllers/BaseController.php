@@ -3,20 +3,29 @@
 namespace App\Controllers;
 
 use Respect\Validation\Validator as v;
+use App\Interfaces\ICrudController;
 
-class BaseController
+abstract class BaseController
 {
-  public function __construct()
-  {
-    $this->cors();
-  }
+  // public function __construct()
+  // {
+  //   $this->cors();
+  // }
 
-  protected function cors()
-  {
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
-    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-  }
+
+  // abstract public function index();
+  // abstract public function show($id);
+  // abstract public function store();
+  // abstract public function update($id);
+  // abstract public function delete($id);
+
+
+  // protected function cors()
+  // {
+  //   header("Access-Control-Allow-Origin: *");
+  //   header("Access-Control-Allow-Headers: Content-Type, Authorization");
+  //   header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+  // }
 
   protected function success($data = [], $message = "OK", $status = 200)
   {

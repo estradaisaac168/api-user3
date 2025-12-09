@@ -28,6 +28,6 @@ class Course extends Model
     public function students()
     {
         return $this->belongsToMany(Student::class, 'student_course', 'course_id', 'student_id')
-                    ->withPivot('status', 'final_grade');
+                    ->withPivot('final_grade', 'status', 'enrolled_at');
     }
 }

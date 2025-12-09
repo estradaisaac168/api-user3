@@ -1,26 +1,23 @@
 <?php
+
+
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/Core/bootstrap.php';
+
 
 use Bramus\Router\Router;
 use App\Controllers\UserController;
 use App\Controllers\AuthController;
 use App\Middleware\AuthMiddleware;
 
-// Responder preflight
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit;
-}
-
 $router = new Router();
 
 // Rutas públicas
-$router->post('/register', function () {
+$router->post('/auth/register', function () {
     (new AuthController())->register();
 });
 
-$router->post('/login', function () {
+$router->post('/auth/login', function () {
     (new AuthController())->login();
 });
 

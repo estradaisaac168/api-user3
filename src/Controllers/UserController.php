@@ -5,7 +5,7 @@ namespace App\Controllers;
 use Models\User;
 use Respect\Validation\Validator as v;
 
-class UserController extends BaseController
+class UserController extends BaseController implements ICrudController
 {
     /**
      * GET /users

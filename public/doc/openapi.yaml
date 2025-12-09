@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: API de Usuarios
+  description: Documentación de la API creada en PHP.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+    description: Servidor local
+
+paths:
+  /users:
+    get:
+      summary: Obtener lista de usuarios
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Lista de usuarios
+
+  /users/{id}:
+    get:
+      summary: Obtener un usuario por ID
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Usuario encontrado
+        '404':
+          description: Usuario no existe
+
+
+
+
+
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Iniciar sesión y obtener token JWT
+      description: |
+        Autentica a un usuario usando email y password.
+        Devuelve un token JWT que debe usarse en los endpoints protegidos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: "admin@gmail.com"
+                password:
+                  type: string
+                  example: "123456"
+      responses:
+        "200":
+          description: Login exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Autenticado
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                      token_type:
+                        type: string
+                        example: Bearer
+                      expires_in:
+                        type: integer
+                        example: 3600
+        "401":
+          description: Credenciales incorrectas
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Credenciales incorrectas
+        "422":
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: El campo email es obligatorio

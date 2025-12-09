@@ -1,0 +1,31 @@
+[09-Dec-2025 19:48:55 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:52:00 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:09 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:09 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:10 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:10 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:11 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:11 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:12 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:12 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:12 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:12 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:12 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:12 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:13 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:13 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:13 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:13 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:53:13 Europe/Berlin] PHP Warning:  Undefined array key "APP_ENV" in C:\xampp\htdocs\testing\api-user3\src\Core\bootstrap.php on line 31
+[09-Dec-2025 19:53:13 Europe/Berlin] [FATAL] Undefined array key "APP_ENV"
+[09-Dec-2025 19:59:23 Europe/Berlin] [EXCEPTION] Interface "App\Interfaces\ICrudController" not found
+[09-Dec-2025 19:59:26 Europe/Berlin] [EXCEPTION] Interface "App\Interfaces\ICrudController" not found
+[09-Dec-2025 19:59:28 Europe/Berlin] [EXCEPTION] Interface "App\Interfaces\ICrudController" not found
+[09-Dec-2025 19:59:31 Europe/Berlin] [EXCEPTION] Interface "App\Interfaces\ICrudController" not found
+[09-Dec-2025 20:01:40 Europe/Berlin] PHP Fatal error:  Class App\Controllers\AuthController contains 5 abstract methods and must therefore be declared abstract or implement the remaining methods (App\Controllers\BaseController::index, App\Controllers\BaseController::show, App\Controllers\BaseController::store, ...) in C:\xampp\htdocs\testing\api-user3\src\Controllers\AuthController.php on line 9
+[09-Dec-2025 20:01:40 Europe/Berlin] [FATAL] Class App\Controllers\AuthController contains 5 abstract methods and must therefore be declared abstract or implement the remaining methods (App\Controllers\BaseController::index, App\Controllers\BaseController::show, App\Controllers\BaseController::store, ...)
+[09-Dec-2025 20:02:10 Europe/Berlin] PHP Fatal error:  Class App\Controllers\AuthController contains 5 abstract methods and must therefore be declared abstract or implement the remaining methods (App\Controllers\BaseController::index, App\Controllers\BaseController::show, App\Controllers\BaseController::store, ...) in C:\xampp\htdocs\testing\api-user3\src\Controllers\AuthController.php on line 9
+[09-Dec-2025 20:02:10 Europe/Berlin] [FATAL] Class App\Controllers\AuthController contains 5 abstract methods and must therefore be declared abstract or implement the remaining methods (App\Controllers\BaseController::index, App\Controllers\BaseController::show, App\Controllers\BaseController::store, ...)
+[09-Dec-2025 20:04:11 Europe/Berlin] [EXCEPTION] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: default, SQL: select * from `users` where `email` = isaac@gmail.com limit 1)
+[09-Dec-2025 20:04:47 Europe/Berlin] [EXCEPTION] SQLSTATE[HY000] [1049] Unknown database 'education_db' (Connection: default, SQL: select * from `users` where `email` = isaac@gmail.com limit 1)
+[09-Dec-2025 20:04:56 Europe/Berlin] [EXCEPTION] SQLSTATE[HY000] [1049] Unknown database 'education_db' (Connection: default, SQL: select * from `users` where `email` = isaac@gmail.com limit 1)
