@@ -1,0 +1,26 @@
+{
+    "name": "isaac/estrada",
+    "description": "project api",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Controllers\\": "src/Controllers/",
+            "Models\\": "src/Models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "IsaacEstrada",
+            "email": "isaacestrada168@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "^1.6",
+        "vlucas/phpdotenv": "^5.6",
+        "illuminate/database": "^12.41",
+        "illuminate/events": "^12.41",
+        "respect/validation": "^2.4",
+        "firebase/php-jwt": "^6.11"
+    }
+}
