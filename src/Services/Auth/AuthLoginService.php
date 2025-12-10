@@ -9,7 +9,7 @@ use App\Services\JWTService;
 
 class AuthLoginService
 {
-  public function loginUser($input)
+  public function loginUser($input):array
   {
     $user = User::where('email', $input['email'])->first();
 
@@ -35,10 +35,23 @@ class AuthLoginService
 
     $token = JWTService::generateToken($payload);
 
-    return [
+    $token = [
       'token' => $token,
       'token_type' => 'Bearer',
       'expires_in' => (int) ($_ENV['JWT_EXPIRES_IN'] ?? 3600)
     ];
+
+    $user = [
+      'email' => $user->email,
+      'password' => $user->password
+    ];
+
+    return ["token" => $token, "user" => $user];
+
+    // return [
+    //   'token' => $token,
+    //   'token_type' => 'Bearer',
+    //   'expires_in' => (int) ($_ENV['JWT_EXPIRES_IN'] ?? 3600)
+    // ];
   }
 }

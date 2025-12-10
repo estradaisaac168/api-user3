@@ -35,19 +35,6 @@ class AuthRegisterService
         throw new \Exception("No se pudo enviar el correo de verificación");
       }
 
-      // Enviar email
-      // $mail = new Mail();
-      // $subject = "Verificación de email";
-      // $verificationLink = "http://localhost:8000/auth/verify?token=$temporaryToken";
-
-      // $body = "<h1>Verifica tu correo</h1>
-      //            <p>Haz clic en el siguiente enlace para activar tu cuenta:</p>
-      //            <a href='$verificationLink'>$verificationLink</a>";
-
-      // if (!$mail->send($user->email, $subject, $body)) {
-      //   throw new \Exception("No se pudo enviar el correo de verificación");
-      // }
-
       return $user;
     });
   }

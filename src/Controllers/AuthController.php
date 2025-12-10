@@ -30,7 +30,7 @@ class AuthController extends BaseController
 
       return $this->success([], "Usuario creado. Revisa tu email para verificar tu cuenta", 201);
     } catch (\Exception $e) {
-      return $this->error("Error al registrar el usuario: " . $e->getMessage(), 500);
+      return $this->error("Error al registrar el usuario: " , $e->getCode() ?: 500, [$e->getMessage()]);
     }
   }
 
@@ -40,7 +40,7 @@ class AuthController extends BaseController
       $token = $_GET["token"] ?? NULL;
 
       if (!$token) {
-        return $this->error("Datos inválidos", 400, $error[$token] = "Token no proporcionado");
+        return $this->error("Datos inválidos", 400, ["Token no proporcionado"]);
       }
 
       $emailVerificationService = new EmailVerificationService();
@@ -48,7 +48,7 @@ class AuthController extends BaseController
 
       return $this->success([], "Cuenta confirmada", 200);
     } catch (\Exception $e) {
-      return $this->error($e->getMessage(), $e->getCode() ?: 500);
+      return $this->error("Error al verificar email", $e->getCode() ?: 500, [$e->getMessage()]);
     }
   }
 
@@ -67,7 +67,7 @@ class AuthController extends BaseController
 
       return $this->success($tokenData, "Autenticado");
     } catch (\Exception $e) {
-      return $this->error("Error en los datos de entrada", 400, [$e->getMessage()]);
+      return $this->error("Error en login", $e->getCode() ?: 500, [$e->getMessage()]);
     }
   }
 }

@@ -13,7 +13,7 @@ class JWTService
         return $_ENV['JWT_SECRET'] ?? null;
     }
 
-    public static function generateToken(array $payload = [], int $expiresIn = null)
+    public static function generateToken(array $payload = [], ?int $expiresIn = null)
     {
         $now = time();
         $exp = $now + ($expiresIn ?? (int)($_ENV['JWT_EXPIRES_IN'] ?? 3600));
