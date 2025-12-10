@@ -3,6 +3,7 @@
 namespace App\Middleware;
 
 use App\Controllers\BaseController;
+use App\Helpers\ResponseHelper;
 use App\Services\JWTService;
 
 class AuthMiddleware
@@ -13,19 +14,12 @@ class AuthMiddleware
         $auth = $headers['Authorization'] ?? $headers['authorization'] ?? null;
 
         if (!$auth) {
-            http_response_code(401);
-            echo json_encode(['status' => 'error', 'message' => 'Token no proporcionado']);
-            exit;
+            ResponseHelper::error('Token no proporcionado', 401);
         }
-
-
-
 
         // Esperamos: "Bearer <token>"
         if (!preg_match('/Bearer\s(\S+)/', $auth,  $matches)) {
-            http_response_code(401);
-            echo json_encode(['status' => 'error', 'message' => 'Formato de token inválido']);
-            exit;
+            ResponseHelper::error('Formato de token inválido', 401);
         }
 
         $token = $matches[1];
@@ -37,9 +31,7 @@ class AuthMiddleware
             // O usar una clase App container - aquí uso $_REQUEST por simplicidad:
             $_REQUEST['auth_user'] = $decoded;
         } catch (\Exception $e) {
-            http_response_code(401);
-            echo json_encode(['status' => 'error', 'message' => 'Token inválido o expirado', 'detail' => $e->getMessage()]);
-            exit;
+            ResponseHelper::error('Token inválido o expirado', 401, ['detail' => $e->getMessage()]);
         }
     }
 }

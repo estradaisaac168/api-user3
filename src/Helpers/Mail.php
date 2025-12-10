@@ -5,7 +5,7 @@ namespace App\Helpers;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// require_once __DIR__ . '/../../vendor/autoload.php';
+//require_once __DIR__ . '/../../vendor/autoload.php';
 
 class Mail
 {
@@ -42,7 +42,6 @@ class Mail
             $this->mailer->Body    = $body;
 
             return $this->mailer->send();
-
         } catch (Exception $e) {
             error_log("Error enviando email: {$e->getMessage()}");
             return false;

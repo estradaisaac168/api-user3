@@ -1,6 +1,9 @@
 <?php
 
 // ====== HEADERS Y CORS ======
+
+use App\Helpers\ResponseHelper;
+
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
@@ -14,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // ====== DOTENV ======
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load(); 
+$dotenv->load();
 
 // ====== LOGS ======
 $logDir = __DIR__ . '/../../logs';
@@ -34,8 +37,8 @@ ini_set('display_errors', $environment === 'local' ? 1 : 0);
 // ====== HANDLERS PERSONALIZADOS ======
 require_once __DIR__ . '/ErrorHandler.php';
 
-set_exception_handler([ErrorHandler::class, 'handleException']);
-set_error_handler([ErrorHandler::class, 'handleError']);
+set_exception_handler([App\Core\ErrorHandler::class, 'handleException']);
+set_error_handler([App\Core\ErrorHandler::class, 'handleError']);
 
 error_reporting(E_ALL);
 
@@ -45,12 +48,7 @@ register_shutdown_function(function () {
 
     if ($error !== null) {
         error_log("[FATAL] {$error['message']}");
-
-        http_response_code(500);
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Internal server error'
-        ]);
+        ResponseHelper::error("Internal server error", 500);
     }
 });
 

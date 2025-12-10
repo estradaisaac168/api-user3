@@ -9,6 +9,7 @@ use Bramus\Router\Router;
 use App\Controllers\UserController;
 use App\Controllers\AuthController;
 use App\Middleware\AuthMiddleware;
+use App\Helpers\ResponseHelper;
 
 $router = new Router();
 
@@ -22,7 +23,7 @@ $router->post('/auth/login', function () {
 });
 
 //Veridicacion del email by token
-$router->get('/auth/verify', function(){
+$router->get('/auth/verify', function () {
     (new AuthController())->verifyEmail();
 });
 
@@ -34,7 +35,7 @@ $router->before('GET|POST|PUT|DELETE', '/users.*', function () {
 });
 
 $router->get('/', function () {
-    echo json_encode(["message" => "API funcionando"]);
+    ResponseHelper::success([], "API funcionando", 200);
 });
 
 $router->mount('/users', function () use ($router) {
@@ -68,11 +69,7 @@ $router->mount('/users', function () use ($router) {
 // ---------------------------------------------------------
 // Error 404
 $router->set404(function () {
-    http_response_code(404);
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Ruta no encontrada'
-    ]);
+    ResponseHelper::error("Ruta no encontrada", 404);
 });
 
 // Ejecutar router

@@ -27,7 +27,7 @@ ON DUPLICATE KEY UPDATE name = name;
 -- USERS TABLE (for authentication)
 -- This is the single source of truth for login/email
 -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS users (
+/* CREATE TABLE IF NOT EXISTS users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -39,6 +39,33 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles(id)
         ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+ALTER TABLE users
+ADD COLUMN is_verified TINYINT(1) DEFAULT 0,
+ADD COLUMN verification_token VARCHAR(255) NULL,
+ADD COLUMN verification_expires DATETIME NULL; */
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role_id INT NOT NULL,
+    status ENUM('active', 'inactive') DEFAULT 'active',
+    is_verified TINYINT(1) DEFAULT 0,
+    verification_token VARCHAR(255) NULL,
+    verification_expires DATETIME NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_users_role FOREIGN KEY (role_id)
+        REFERENCES roles(id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
+
 
 -----------------------------------------------------
 -- STUDENTS TABLE
@@ -126,9 +153,9 @@ CREATE TABLE IF NOT EXISTS subjects (
 CREATE INDEX idx_subject_teacher ON subjects(teacher_id);
 
 -----------------------------------------------------
--- STUDENT_COURSE PIVOT
+-- course_student PIVOT
 -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS student_course (
+CREATE TABLE IF NOT EXISTS course_student (
     id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT NOT NULL,
     course_id INT NOT NULL,
@@ -137,11 +164,11 @@ CREATE TABLE IF NOT EXISTS student_course (
     status ENUM('enrolled', 'in_progress', 'approved', 'failed', 'withdrawn') DEFAULT 'enrolled',
     CONSTRAINT fk_sc_student FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_sc_course FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    UNIQUE KEY unique_student_course (student_id, course_id)
+    UNIQUE KEY unique_course_student (student_id, course_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE INDEX idx_studentcourse_student ON student_course(student_id);
-CREATE INDEX idx_studentcourse_course ON student_course(course_id);
+CREATE INDEX idx_studentcourse_student ON course_student(student_id);
+CREATE INDEX idx_studentcourse_course ON course_student(course_id);
 
 -----------------------------------------------------
 -- COURSE_SUBJECT PIVOT
@@ -176,8 +203,5 @@ VALUES ('admin', 'admin@example.com', '$2y$...your_bcrypt_hash_here...', 1);
 -- End of schema
 
 -- Para verificacion de email
-ALTER TABLE users
-ADD COLUMN is_verified TINYINT(1) DEFAULT 0,
-ADD COLUMN verification_token VARCHAR(255) NULL,
-ADD COLUMN verification_expires DATETIME NULL;
+
 

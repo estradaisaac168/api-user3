@@ -1,27 +1,20 @@
 <?php
 
+namespace App\Core;
+
+use App\Helpers\ResponseHelper;
+
 class ErrorHandler
 {
     public static function handleException($exception)
     {
         error_log("[EXCEPTION] " . $exception->getMessage());
-
-        http_response_code(500);
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Internal server error'
-        ]);
+        ResponseHelper::error("Internal server error", 500);
     }
 
     public static function handleError($severity, $message, $file, $line)
     {
-        $log = "[ERROR] $message in $file on line $line";
-        error_log($log);
-
-        http_response_code(500);
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Internal server error'
-        ]);
+        error_log("[ERROR] $message in $file on line $line");
+        ResponseHelper::error("Internal server error", 500);
     }
 }

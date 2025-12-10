@@ -2,6 +2,9 @@
 
 namespace App\Middleware;
 
+use App\Helpers\ResponseHelper;
+use Illuminate\Support\Facades\Response;
+
 class RoleMiddleware
 {
     public static function requireRole($roles = [])
@@ -9,15 +12,11 @@ class RoleMiddleware
         $auth = $_REQUEST['auth_user'] ?? null;
 
         if (!$auth) {
-            http_response_code(401);
-            echo json_encode(['error' => 'No autenticado']);
-            exit;
+            ResponseHelper::error('No autenticado', 401);
         }
 
         if (!in_array($auth->role_id, $roles)) {
-            http_response_code(403);
-            echo json_encode(['error' => 'Acceso denegado']);
-            exit;
+            ResponseHelper::error('Acceso denegado', 403);
         }
     }
 }

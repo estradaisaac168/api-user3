@@ -33,3 +33,28 @@
 [09-Dec-2025 23:40:45 Europe/Berlin] [ERROR] Attempt to read property "is_verified" on null in C:\xampp\htdocs\testing\api-user3\src\Controllers\AuthController.php on line 109
 [09-Dec-2025 23:40:58 Europe/Berlin] [ERROR] Attempt to read property "is_verified" on null in C:\xampp\htdocs\testing\api-user3\src\Controllers\AuthController.php on line 109
 [10-Dec-2025 00:06:29 Europe/Berlin] [EXCEPTION] in_array(): Argument #2 ($haystack) must be of type array, int given
+[10-Dec-2025 02:36:26 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: set_exception_handler(): Argument #1 ($callback) must be a valid callback or null, class "ErrorHandler" not found in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Core\bootstrap.php:37
+Stack trace:
+#0 C:\xampp\htdocs\projects\apis-versions\api-user3\src\Core\bootstrap.php(37): set_exception_handler(Array)
+#1 C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php(5): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Core\bootstrap.php on line 37
+[10-Dec-2025 02:59:07 Europe/Berlin] [EXCEPTION] Class "PHPMailer\PHPMailer\PHPMailer" not found
+[10-Dec-2025 03:50:43 Europe/Berlin] [ERROR] Undefined array key "username" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 17
+[10-Dec-2025 03:50:48 Europe/Berlin] [ERROR] Undefined array key "username" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 17
+[10-Dec-2025 03:50:59 Europe/Berlin] [ERROR] Undefined array key "username" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 17
+[10-Dec-2025 03:52:58 Europe/Berlin] [ERROR] Undefined array key "username" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 17
+[10-Dec-2025 03:54:10 Europe/Berlin] [ERROR] Array to string conversion in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 16
+[10-Dec-2025 03:54:57 Europe/Berlin] [ERROR] -> Array
+(
+)
+
+[10-Dec-2025 03:54:57 Europe/Berlin] [ERROR] Undefined array key "username" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 22
+[10-Dec-2025 03:58:04 Europe/Berlin] [ERROR] -> Array
+(
+)
+
+[10-Dec-2025 03:58:04 Europe/Berlin] [ERROR] Undefined array key "username" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 22
+[10-Dec-2025 04:05:07 Europe/Berlin] [ERROR] Undefined variable $request in C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php on line 18
+[10-Dec-2025 04:05:14 Europe/Berlin] [ERROR] Undefined variable $request in C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php on line 18
+[10-Dec-2025 04:05:46 Europe/Berlin] [ERROR] Undefined array key "role_id" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 23
