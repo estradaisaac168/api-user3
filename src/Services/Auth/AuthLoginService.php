@@ -1,14 +1,17 @@
 <?php
 
-
-
 namespace App\Services\Auth;
 
+
 use Models\User;
+use App\Repositories\User\UserRepository;
 use App\Services\JWTService;
 
-class AuthLoginService
-{
+class AuthLoginService{
+    public function __construct(private UserRepository $repository)
+  {
+  }
+
   public function loginUser($input):array
   {
     $user = User::where('email', $input['email'])->first();

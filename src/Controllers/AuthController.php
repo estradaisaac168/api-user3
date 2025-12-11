@@ -2,11 +2,9 @@
 
 namespace App\Controllers;
 
-use Models\User;
-use App\Services\JWTService;
-use App\Services\AuthService;
+use App\Core\Container;
+use App\Repositories\Auth\AuthRepository;
 use App\Controllers\BaseController;
-use Illuminate\Support\Facades\Auth;
 use Respect\Validation\Validator as v;
 use App\Services\Auth\AuthLoginService;
 use App\Services\Auth\AuthRegisterService;
@@ -25,12 +23,14 @@ class AuthController extends BaseController
         'password' => v::stringType()->length(6, 100)->notEmpty()->setTemplate('La contraseña debe tener al menos 6 caracteres'),
       ], $input);
 
-      $authRegisterService = new AuthRegisterService();
+      // $authRegisterService = new AuthRegisterService(new AuthRepository());
+      $authRegisterService = Container::resolve(AuthRegisterService::class);
       $authRegisterService->registerUser($input);
 
       return $this->success([], "Usuario creado. Revisa tu email para verificar tu cuenta", 201);
     } catch (\Exception $e) {
-      return $this->error("Error al registrar el usuario: " , $e->getCode() ?: 500, [$e->getMessage()]);
+      $status = $e->getCode() > 0 ? $e->getCode() : 400;
+      return $this->error("Error al registrar el usuario: " , $status, [$e->getMessage()]);
     }
   }
 
@@ -43,7 +43,7 @@ class AuthController extends BaseController
         return $this->error("Datos inválidos", 400, ["Token no proporcionado"]);
       }
 
-      $emailVerificationService = new EmailVerificationService();
+      $emailVerificationService = Container::resolve(EmailVerificationService::class);
       $emailVerificationService->verifyEmail($token);
 
       return $this->success([], "Cuenta confirmada", 200);
@@ -62,7 +62,7 @@ class AuthController extends BaseController
         'password' => v::stringType()->notEmpty()->setTemplate('La contraseña es obligatoria'),
       ], $input);
 
-      $authLoginService = new AuthLoginService();
+      $authLoginService = Container::resolve(AuthLoginService::class);
       $tokenData = $authLoginService->loginUser($input);
 
       return $this->success($tokenData, "Autenticado");
