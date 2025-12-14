@@ -58,3 +58,25 @@ Stack trace:
 [10-Dec-2025 04:05:07 Europe/Berlin] [ERROR] Undefined variable $request in C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php on line 18
 [10-Dec-2025 04:05:14 Europe/Berlin] [ERROR] Undefined variable $request in C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php on line 18
 [10-Dec-2025 04:05:46 Europe/Berlin] [ERROR] Undefined array key "role_id" in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Services\AuthService.php on line 23
+[14-Dec-2025 05:40:51 Europe/Berlin] [EXCEPTION] El layout main no existe.
+[14-Dec-2025 06:17:36 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging/ErrorHandler.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging\log.php on line 19
+[14-Dec-2025 06:17:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging/ErrorHandler.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging\log.php:19
+Stack trace:
+#0 C:\xampp\htdocs\projects\apis-versions\api-user3\src\Core\bootstrap.php(25): require_once()
+#1 C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php(5): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging\log.php on line 19
+[14-Dec-2025 06:19:27 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging/ErrorHandler.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging\log.php on line 22
+[14-Dec-2025 06:19:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging/ErrorHandler.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging\log.php:22
+Stack trace:
+#0 C:\xampp\htdocs\projects\apis-versions\api-user3\src\Core\bootstrap.php(25): require_once()
+#1 C:\xampp\htdocs\projects\apis-versions\api-user3\public\index.php(5): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\projects\apis-versions\api-user3\config\logging\log.php on line 22
+[14-Dec-2025 06:32:34 Europe/Berlin] [ERROR] include(C:\xampp\htdocs\projects\apis-versions\api-user3\vendor\composer/../../src/Helpers/ResponseHelper.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projects\apis-versions\api-user3\vendor\composer\ClassLoader.php on line 576
+[14-Dec-2025 06:32:56 Europe/Berlin] [ERROR] include(C:\xampp\htdocs\projects\apis-versions\api-user3\vendor\composer/../../src/Helpers/ResponseHelper.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\projects\apis-versions\api-user3\vendor\composer\ClassLoader.php on line 576
+[14-Dec-2025 06:43:56 Europe/Berlin] PHP Fatal error:  Cannot redeclare e() (previously declared in C:\xampp\htdocs\projects\apis-versions\api-user3\vendor\illuminate\support\helpers.php:123) in C:\xampp\htdocs\projects\apis-versions\api-user3\src\Helpers\helpers.php on line 26
+[14-Dec-2025 06:43:56 Europe/Berlin] [FATAL] Cannot redeclare e() (previously declared in C:\xampp\htdocs\projects\apis-versions\api-user3\vendor\illuminate\support\helpers.php:123)
+[14-Dec-2025 06:47:52 Europe/Berlin] [EXCEPTION] Class "Models\User" not found
+[14-Dec-2025 06:47:58 Europe/Berlin] [EXCEPTION] Class "Models\User" not found
+[14-Dec-2025 06:48:30 Europe/Berlin] [EXCEPTION] Class "Models\User" not found

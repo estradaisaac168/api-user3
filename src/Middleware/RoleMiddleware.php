@@ -12,11 +12,11 @@ class RoleMiddleware
         $auth = $_REQUEST['auth_user'] ?? null;
 
         if (!$auth) {
-            ResponseHelper::error('No autenticado', 401);
+            Response::error('No autenticado', 401);
         }
 
         if (!in_array($auth->role_id, $roles)) {
-            ResponseHelper::error('Acceso denegado', 403);
+            Response::error('Acceso denegado', 403);
         }
     }
 }

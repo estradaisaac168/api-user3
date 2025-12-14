@@ -3,16 +3,14 @@
 namespace App\Services\Auth;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Models\User;
+use App\Models\User;
 use App\Repositories\User\UserRepository;
 use App\Services\JWTService;
 
 class AuthRegisterService
 {
 
-  public function __construct(private UserRepository $repository)
-  {
-  }
+  public function __construct(private UserRepository $repository) {}
 
 
   public function registerUser(array $data): User

@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-use Illuminate\Database\QueryException;
+use App\Core\Response;
 use App\Helpers\ResponseHelper;
+use Illuminate\Database\QueryException;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 
 try {
@@ -22,12 +23,12 @@ try {
   $capsule->bootEloquent();
 } catch (QueryException $e) {
   // Error de SQL, constraints, sintaxis, etc.
-  return ResponseHelper::error("Error en la consulta SQL",500,[$e->getMessage()]);
+  return Response::error("Error en la consulta SQL",500,[$e->getMessage()]);
 } catch (\PDOException $e) {
   // Error bajo nivel clásico de PDO
-  return ResponseHelper::error(
+  return Response::error(
     "Error de conexión o ejecución en la base de datos",500,[$e->getMessage()]);
 } catch (\Exception $e) {
   // Cualquier otro error no contemplado
-  return ResponseHelper::error("Error inesperado",500,[$e->getMessage()]);
+  return Response::error("Error inesperado",500,[$e->getMessage()]);
 }

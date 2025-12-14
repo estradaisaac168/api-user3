@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Core\Response;
 use App\Helpers\ResponseHelper;
-use Respect\Validation\Validator as v;
 use App\Interfaces\ICrudController;
+use Respect\Validation\Validator as v;
 
 abstract class BaseController
 {
@@ -16,12 +17,12 @@ abstract class BaseController
 
   protected function success($data = [], $message = "OK", $status = 200)
   {
-    ResponseHelper::success($data, $message, $status);
+    Response::success($data, $message, $status);
   }
 
   protected function error($message = "Error", $status = 400, $errors = [])
   {
-    ResponseHelper::error($message, $status, $errors);
+    Response::error($message, $status, $errors);
   }
 
   protected function validate($rules, $data)

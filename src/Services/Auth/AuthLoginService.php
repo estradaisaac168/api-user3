@@ -3,7 +3,7 @@
 namespace App\Services\Auth;
 
 
-use Models\User;
+use App\Models\User;
 use App\Repositories\User\UserRepository;
 use App\Services\JWTService;
 

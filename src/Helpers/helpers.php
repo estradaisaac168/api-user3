@@ -1,6 +1,6 @@
 <?php
 
-use Models\User;
+use App\Models\User;
 use App\Helpers\Mail;
 
 
@@ -18,4 +18,12 @@ function sendEmail(User $user, string $temporaryToken): bool
     ";
 
   return $mail->send($user->email, $subject, $body);
+}
+
+
+if (!function_exists('e')) {
+  function e(string $value): string
+  {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+  }
 }

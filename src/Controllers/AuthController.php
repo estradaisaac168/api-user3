@@ -2,11 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Core\View;
 use App\Core\Container;
-use App\Repositories\Auth\AuthRepository;
 use App\Controllers\BaseController;
 use Respect\Validation\Validator as v;
 use App\Services\Auth\AuthLoginService;
+use App\Repositories\Auth\AuthRepository;
 use App\Services\Auth\AuthRegisterService;
 use App\Services\Auth\EmailVerificationService;
 
@@ -30,7 +31,7 @@ class AuthController extends BaseController
       return $this->success([], "Usuario creado. Revisa tu email para verificar tu cuenta", 201);
     } catch (\Exception $e) {
       $status = $e->getCode() > 0 ? $e->getCode() : 400;
-      return $this->error("Error al registrar el usuario: " , $status, [$e->getMessage()]);
+      return $this->error("Error al registrar el usuario: ", $status, [$e->getMessage()]);
     }
   }
 
@@ -46,7 +47,10 @@ class AuthController extends BaseController
       $emailVerificationService = Container::resolve(EmailVerificationService::class);
       $emailVerificationService->verifyEmail($token);
 
-      return $this->success([], "Cuenta confirmada", 200);
+      // return $this->success([], "Cuenta confirmada", 200);
+      View::render('auth/verification_success', [
+        'title' => 'Cuenta verificada',
+      ]);
     } catch (\Exception $e) {
       return $this->error("Error al verificar email", $e->getCode() ?: 500, [$e->getMessage()]);
     }

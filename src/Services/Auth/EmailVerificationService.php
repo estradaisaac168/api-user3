@@ -3,12 +3,12 @@
 namespace App\Services\Auth;
 
 use App\Repositories\User\UserRepository;
-use Models\User;
+use App\Models\User;
 
 class EmailVerificationService
 {
 
-  public function __construct(private UserRepository $repository){}
+  public function __construct(private UserRepository $repository) {}
 
   public function verifyEmail(string $token): ?User
   {
@@ -17,7 +17,7 @@ class EmailVerificationService
 
     $user = $this->repository->verifyToken($token);
 
-        //Usuario existe con ese token?
+    //Usuario existe con ese token?
     if (!$user) {
       throw new \Exception("Token inválido", 400);
     }
