@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Middleware\RoleMiddleware;
-use Models\User;
+use App\Models\User;
 use Respect\Validation\Validator as v;
 use App\Interfaces\ICrudController;
 
@@ -42,7 +42,7 @@ class UserController extends BaseController implements ICrudController
         $input = $this->jsonInput();
 
         // Validación
-        $this->validate([
+        $this->validateFromApi([
             'name'  => v::stringType()->length(3, 50)->notEmpty(),
             'email' => v::email()->notEmpty(),
             'password' => v::stringType()->length(6, 100)->notEmpty()
@@ -72,7 +72,7 @@ class UserController extends BaseController implements ICrudController
         $input = $this->jsonInput();
 
         // Validar parcialmente
-        $this->validate([
+        $this->validateFromHTML([
             'name'  => v::optional(v::stringType()->length(3, 50)),
             'email' => v::optional(v::email()),
         ], $input);

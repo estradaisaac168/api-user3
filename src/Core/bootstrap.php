@@ -27,3 +27,5 @@ require_once __DIR__ . '/../../config/logging/log.php';
 // ====== BASE DE DATOS ======
 require_once __DIR__ . '/database.php';
 require_once __DIR__ . '/../Helpers/helpers.php';
+
+session_start();

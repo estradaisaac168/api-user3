@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Core\Container;
 use App\Controllers\BaseController;
+use App\Middleware\CsrfMiddleware;
 use Respect\Validation\Validator as v;
 use App\Services\Auth\AuthLoginService;
 use App\Repositories\Auth\AuthRepository;
@@ -16,9 +17,10 @@ class AuthController extends BaseController
   public function register()
   {
     try {
+
       $input = $this->jsonInput();
 
-      $this->validate([
+      $this->validateFromApi([
         'username' => v::stringType()->length(3, 10)->notEmpty()->setTemplate('El nombre de usuario debe tener entre 3 y 10 caracteres'),
         'email' => v::email()->notEmpty()->setTemplate('El email no es válido'),
         'password' => v::stringType()->length(6, 100)->notEmpty()->setTemplate('La contraseña debe tener al menos 6 caracteres'),
@@ -61,7 +63,7 @@ class AuthController extends BaseController
     try {
       $input = $this->jsonInput();
 
-      $this->validate([
+      $this->validateFromApi([
         'email' => v::email()->notEmpty()->setTemplate('El email no es válido'),
         'password' => v::stringType()->notEmpty()->setTemplate('La contraseña es obligatoria'),
       ], $input);
