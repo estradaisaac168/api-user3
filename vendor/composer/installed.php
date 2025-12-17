@@ -3,7 +3,7 @@
         'name' => 'isaac/estrada',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'febdada72ca3a7495e973030e3b39247620e4257',
+        'reference' => 'fb4a8f9d071140b5bc2561dffb228c85d47a8d27',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -166,7 +166,7 @@
         'isaac/estrada' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'febdada72ca3a7495e973030e3b39247620e4257',
+            'reference' => 'fb4a8f9d071140b5bc2561dffb228c85d47a8d27',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
